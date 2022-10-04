@@ -1,5 +1,4 @@
 ﻿using Npgsql;
-using pruebaConexionPostgreSQLV.Util;
 
 namespace pruebaConexionPostgreSQLV.Models.Conexiones
 {
@@ -10,22 +9,17 @@ namespace pruebaConexionPostgreSQLV.Models.Conexiones
     */
     public class ConexionPostgreSQL
     {
-        //CONSTANTES
-        string HOST = VariablesConexionPostgreSQL.HOST;
-        string PORT = VariablesConexionPostgreSQL.PORT;
-        string USER = VariablesConexionPostgreSQL.USER;
-        string PASS = VariablesConexionPostgreSQL.PASS;
-        string DB = VariablesConexionPostgreSQL.DB;
-
         //MÉTODOS
-        public NpgsqlConnection GeneraConexion(string host,
-            string port, string db, string user, string pass)
+        public NpgsqlConnection GeneraConexion(string host, string port,
+            string db, string user, string pass)
         {
             System.Console.WriteLine("[INFORMACIÓN-GeneraPostgreSQL-GeneraConexion] Entra en GeneraConexion");
             
             //Se crea una nueva conexión y la cadena con los datos de conexión.
             NpgsqlConnection conexion = new NpgsqlConnection();
-            var datosConexion = "Server=?;Port=?;User Id=?;Password=?;Database=?";
+            var datosConexion = "Server="+host+"; Port="+port+"; User Id="+user+"; Password="+pass+"; Database=" +db;
+            //var datosConexion = "Server=localhost; Port=5432; User Id=postgres; Password=pr0f3s0r; Database=EjemploInicial";
+            System.Console.WriteLine(datosConexion);
             var estado = "";
             if (!string.IsNullOrWhiteSpace(datosConexion))
             {

@@ -1,4 +1,6 @@
-﻿namespace pruebaConexionPostgreSQLV.Util
+﻿using Microsoft.AspNetCore.Http;
+
+namespace pruebaConexionPostgreSQLV.Util
 {
     /* variablesConexionPostgreSQL - Clase que recoger las variables de conexión a PostgreSQL.
     * @author garfe
