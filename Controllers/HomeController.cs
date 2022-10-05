@@ -42,31 +42,16 @@ namespace pruebaConexionPostgreSQLV.Controllers
 
             //Se realiza la consulta y se guarda una lista de alumnosDTO
             listAlumnoDTO = ConsultasPostgreSQL.ConsultaSelectPostgreSQL(conexionGenerada);
-            //Se define la consulta a realizar y se guarda el resultado
-            /*try
-            {
-
-                consulta = new NpgsqlCommand("SELECT * FROM \"proyectoEclipse\".\"alumnos\"", conexionGenerada);
-                NpgsqlDataReader resultadoConsulta = consulta.ExecuteReader();
-                while (resultadoConsulta.Read())
-                {
-                   
-                        Console.Write("{0}\t{1}\t{2}\t{3} \n", 
-                            resultadoConsulta[0], resultadoConsulta[1], resultadoConsulta[2], resultadoConsulta[3]);
-                    
-                }
-
-                System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Cierre conexión y conjunto de datos");
-                conexionGenerada.Close();
-                resultadoConsulta.Close();
-
-            }catch(Exception e)
-            {
-
-                System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Error al ejecutar consulta: " + e);
-                conexionGenerada.Close();
-
-            }*/
+            int cont = listAlumnoDTO.Count();
+            System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Lista compuesta por: "+cont+" alumnos");
+            System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Lista alumnos: " + listAlumnoDTO[0].id_alumno
+                + listAlumnoDTO[0].nombre + listAlumnoDTO[0].apellidos + listAlumnoDTO[0].email);
+            System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Lista alumnos: " + listAlumnoDTO[1].id_alumno
+                + listAlumnoDTO[1].nombre + listAlumnoDTO[1].apellidos + listAlumnoDTO[1].email);
+            System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Lista alumnos: " + listAlumnoDTO[2].id_alumno
+                + listAlumnoDTO[2].nombre + listAlumnoDTO[2].apellidos + listAlumnoDTO[2].email);
+            System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Lista alumnos: " + listAlumnoDTO[3].id_alumno
+                + listAlumnoDTO[3].nombre + listAlumnoDTO[3].apellidos + listAlumnoDTO[3].email);
 
             return View();
         }
