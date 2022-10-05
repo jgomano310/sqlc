@@ -29,11 +29,11 @@ namespace pruebaConexionPostgreSQLV.Models.Conexiones
                     conexion.Open();
                     //Se obtiene el estado de conexión para informarlo por consola
                     estado = conexion.State.ToString();
-                    System.Console.WriteLine("[INFORMACIÓN-GeneraPostgreSQL-GeneraConexion] Estado conexión: "+estado);
+                    System.Console.WriteLine("[INFORMACIÓN-ConexionPostgreSQL-GeneraConexion] Estado conexión: " + estado);
                 }
                 catch (Exception e)
                 {
-                    System.Console.WriteLine("[ERROR-conexionPostgresql-generaConexion] Error al crear conexión:" + e);
+                    System.Console.WriteLine("[ERROR-ConexionPostgreSQL-GeneraConexion] Error al crear conexión:" + e);
                     conexion.Close();
                 }
             }

@@ -5,6 +5,8 @@ using pruebaConexionPostgreSQLV.Models;
 using pruebaConexionPostgreSQLV.Util;
 using System.Diagnostics;
 using System.Reflection.PortableExecutable;
+using pruebaConexionPostgreSQLV.Models.DTOs;
+using pruebaConexionPostgreSQLV.Models.Consultas;
 
 namespace pruebaConexionPostgreSQLV.Controllers
 {
@@ -31,13 +33,17 @@ namespace pruebaConexionPostgreSQLV.Controllers
             //Se genera una conexión a PostgreSQL y validamos que esté abierta fuera del método
             var estadoGenerada = "";
             NpgsqlConnection conexionGenerada = new NpgsqlConnection();
-            NpgsqlCommand consulta = new NpgsqlCommand();
+            List<AlumnoDTO> listAlumnoDTO = new List<AlumnoDTO>();
+
+            //NpgsqlCommand consulta = new NpgsqlCommand();
             conexionGenerada = conexionPostgreSQL.GeneraConexion(HOST, PORT, DB, USER, PASS);
             estadoGenerada = conexionGenerada.State.ToString();
             System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Estado conexión generada: " + estadoGenerada);
 
+            //Se realiza la consulta y se guarda una lista de alumnosDTO
+            listAlumnoDTO = ConsultasPostgreSQL.ConsultaSelectPostgreSQL(conexionGenerada);
             //Se define la consulta a realizar y se guarda el resultado
-            try
+            /*try
             {
 
                 consulta = new NpgsqlCommand("SELECT * FROM \"proyectoEclipse\".\"alumnos\"", conexionGenerada);
@@ -60,7 +66,7 @@ namespace pruebaConexionPostgreSQLV.Controllers
                 System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Error al ejecutar consulta: " + e);
                 conexionGenerada.Close();
 
-            }
+            }*/
 
             return View();
         }
