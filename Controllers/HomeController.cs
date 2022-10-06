@@ -44,14 +44,6 @@ namespace pruebaConexionPostgreSQLV.Controllers
             listAlumnoDTO = ConsultasPostgreSQL.ConsultaSelectPostgreSQL(conexionGenerada);
             int cont = listAlumnoDTO.Count();
             System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Lista compuesta por: "+cont+" alumnos");
-            System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Lista alumnos: " + listAlumnoDTO[0].id_alumno
-                + listAlumnoDTO[0].nombre + listAlumnoDTO[0].apellidos + listAlumnoDTO[0].email);
-            System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Lista alumnos: " + listAlumnoDTO[1].id_alumno
-                + listAlumnoDTO[1].nombre + listAlumnoDTO[1].apellidos + listAlumnoDTO[1].email);
-            System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Lista alumnos: " + listAlumnoDTO[2].id_alumno
-                + listAlumnoDTO[2].nombre + listAlumnoDTO[2].apellidos + listAlumnoDTO[2].email);
-            System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Lista alumnos: " + listAlumnoDTO[3].id_alumno
-                + listAlumnoDTO[3].nombre + listAlumnoDTO[3].apellidos + listAlumnoDTO[3].email);
 
             return View();
         }

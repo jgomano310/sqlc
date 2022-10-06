@@ -33,7 +33,7 @@ namespace pruebaConexionPostgreSQLV.Models.Consultas
             catch (Exception e)
             {
 
-                System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Error al ejecutar consulta: " + e);
+                System.Console.WriteLine("[ERROR-HomeController-Index] Error al ejecutar consulta: " + e);
                 conexionGenerada.Close();
 
             }
