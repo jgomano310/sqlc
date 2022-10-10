@@ -17,7 +17,7 @@ namespace pruebaConexionPostgreSQLV.Models.Consultas
             try
             {
                 //Se define y ejecuta la consulta Select
-                NpgsqlCommand consulta = new NpgsqlCommand("SELECT * FROM \"proyectoEclipse\".\"alumnos\"", conexionGenerada);
+                NpgsqlCommand consulta = new NpgsqlCommand("SELECT * FROM \"proyectoEclipse\".\"Alumnos\"", conexionGenerada);
                 NpgsqlDataReader resultadoConsulta = consulta.ExecuteReader();
 
                 //Paso de DataReader a lista de alumnoDTO
@@ -26,7 +26,7 @@ namespace pruebaConexionPostgreSQLV.Models.Consultas
                 System.Console.WriteLine("[INFORMACIÓN-ConsultasPostgreSQL-ConsultaSelectPostgreSQL] Lista compuesta por: " + cont + " alumnos");
 
                 System.Console.WriteLine("[INFORMACIÓN-ConsultasPostgreSQL-ConsultaSelectPostgreSQL] Cierre conexión y conjunto de datos");
-                conexionGenerada.Close();
+                //conexionGenerada.Close();
                 resultadoConsulta.Close();
 
             }

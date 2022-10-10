@@ -33,7 +33,8 @@ namespace pruebaConexionPostgreSQLV.Controllers
             //Se genera una conexión a PostgreSQL y validamos que esté abierta fuera del método
             var estadoGenerada = "";
             NpgsqlConnection conexionGenerada = new NpgsqlConnection();
-            List<AlumnoDTO> listAlumnoDTO = new List<AlumnoDTO>();
+            List<AlumnoDTO> listaAlumnos= new List<AlumnoDTO>();
+            List<AsignaturasDto> listaAsignaturas = new List<AsignaturasDto>();
 
             //NpgsqlCommand consulta = new NpgsqlCommand();
             conexionGenerada = conexionPostgreSQL.GeneraConexion(HOST, PORT, DB, USER, PASS);
@@ -41,12 +42,20 @@ namespace pruebaConexionPostgreSQLV.Controllers
             System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Estado conexión generada: " + estadoGenerada);
 
             //Se realiza la consulta y se guarda una lista de alumnosDTO
-            listAlumnoDTO = ConsultasPostgreSQL.ConsultaSelectPostgreSQL(conexionGenerada);
-            int cont = listAlumnoDTO.Count();
-            System.Console.WriteLine("[INFORMACIÓN-HomeController-Index] Lista compuesta por: "+cont+" alumnos");
+            listaAlumnos = ConsultasPostgreSQL.ConsultaSelectPostgreSQL(conexionGenerada);
+            listaAsignaturas = ConsultaAsigAlumn.ConsultaASignaturas(conexionGenerada);
+           foreach(AsignaturasDto asign in listaAsignaturas)
+            {
+                Console.WriteLine(asign.nombre + " " + asign.apellidos + " "+ asign.id_asignatura) ;
+                
+            }
+            int cont = listaAlumnos.Count();
+            
 
             return View();
         }
+
+        
 
         public IActionResult Privacy()
         {
